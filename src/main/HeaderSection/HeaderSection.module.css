@@ -1,0 +1,24 @@
+.navBar{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    background-color:red;
+}
+
+.buttons{
+    display: flex;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+    width:140px;
+}
+
+.button{
+    padding-right:10px;
+
+}
+
+.cartImage{
+    height:30px;
+    width:30px;
+}
