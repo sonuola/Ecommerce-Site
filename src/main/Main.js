@@ -5,13 +5,13 @@ import ProductCards from "./ProductCards/ProductsCards";
 import styles from './main.module.css'
 import Product from './ProductCards/Product/Product'
 export default function Main() {
-  console.log("main");
+  
 
   const [products, setProducts] = useState([]);
-
   const[isProductOpen,setIsProductOpen] = useState(false)
-
   const[currentProduct,setCurrentProduct] = useState({})
+  const [isSearched,setIsSearched] = useState(false)
+  const[searchResults,setSearchResults] = useState('')
     useEffect(() => {
       axios
         .get("https://fakestoreapi.com/products")
@@ -19,26 +19,19 @@ export default function Main() {
           setProducts(response.data);
         })
         .catch((error) => {
-          console.error(error);
+          
         });
     }, []);
 
-    // console.log(productOpen)
-
-    // products.map((prod) => {
-    //   console.log("hello");
-    // });
-  console.log(products);
   return (
     <div>
-      <HeaderSection />
+      <HeaderSection setSearchResults = {setSearchResults}isSearched = {isSearched} setIsSearched = {setIsSearched}/>
       {isProductOpen && <Product currentProduct = {currentProduct}/>}
     
      
- {!isProductOpen && 
+ {searchResults === '' && !isProductOpen && 
 <div className = {styles.products}>
       {products?.map((prod) => {
-        // console.log(productOpen)
         return(
 
         <ProductCards setCurrentProduct = {setCurrentProduct}setIsProductOpen = {setIsProductOpen}data = {prod}/>
@@ -46,7 +39,15 @@ export default function Main() {
       })}
       </div>
 }
-  
+  {searchResults && !isProductOpen && isSearched && <div className = {styles.products}>
+    {console.log(searchResults)}
+      {searchResults?.map((prod) => {
+        return(
+
+        <ProductCards setCurrentProduct = {setCurrentProduct}setIsProductOpen = {setIsProductOpen}data = {prod}/>
+        )
+      })}
+      </div>}
     </div>
   );
 }

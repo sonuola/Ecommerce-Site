@@ -1,5 +1,6 @@
 .products{
     display:flex;
     flex-wrap:wrap;
+    padding-left:2%;
     /* flex-grow:grow; */
 }
