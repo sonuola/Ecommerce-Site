@@ -1,5 +1,4 @@
 import styles from "./productCards.module.css"
-import { useState, useEffect } from "react";
 export default function ProductCards({
   data = {},
   setIsProductOpen = ()=>{},
@@ -7,10 +6,8 @@ export default function ProductCards({
 }
 ) {
  
-console.log(data)
 
 const onOpenProduct = ()=>{
-  console.log('clicked')
   setIsProductOpen(true)
   setCurrentProduct(data)
 }
@@ -28,7 +25,7 @@ const onOpenProduct = ()=>{
     <h4>Category : {data.category}</h4>
     <h4 className ={styles.starData}>
     {data.rating.rate} 
-    <img className = {styles.star}src = 'https://illustoon.com/photo/7414.png'/>
+    <img className = {styles.star}src = 'https://illustoon.com/photo/7414.png' alt = 'star'/>
     </h4>
     </div>
     

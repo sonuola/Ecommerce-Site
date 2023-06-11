@@ -3,6 +3,9 @@
     flex-direction:row;
     justify-content:space-between;
     background-color:red;
+    align-items:center;
+    margin-bottom:5px;
+    max-height:50px;
 }
 
 .buttons{
@@ -10,7 +13,7 @@
     flex-direction:row;
     justify-content:space-between;
     align-items:center;
-    width:140px;
+    width:500px;
 }
 
 .button{
@@ -21,4 +24,18 @@
 .cartImage{
     height:30px;
     width:30px;
+}
+
+.searchBarAndValues{
+    display:flex;
+    flex-direction:column;
+    overflow:visible;
+}
+
+.searchResults{
+
+    padding-top:200px;
+    align-self:flex-end;
+    justify-self: flex-end;
+    background-color:red;
 }
